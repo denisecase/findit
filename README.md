@@ -8,10 +8,10 @@ A geo-location based game for exploration
 3. Open PS in repo. Move up to parent folder and mk dir temp. cd into temp, run nest new findit.[1]
 4. Let it run, copy files into my repo, not overwriting this README.
 5. Add install/run/test commands (from temp Nest README). Run locally: 
-  - npm install
-  - npm run start
-  - Open browser to http://localhost:3000/
-  - Verify, then stop the app (CTRL-C CTRL-C)
+    - npm install
+    - npm run start
+    - Open browser to http://localhost:3000/
+    - Verify, then stop the app (CTRL-C CTRL-C)
 6. npm install ejs (see [Nest MVC](https://docs.nestjs.com/techniques/mvc))
 7. npm install @nestjs/sequelize sequelize sequelize-typescript pg-hstore pg
 8. npm install --save-dev @types/sequelize
@@ -25,8 +25,10 @@ A geo-location based game for exploration
     - config type: local
     - Helper: wincred
     - Click Add New/Save, then Apply
-13. git add .
-14. git push origin main
+13. Git add / commit / push new content:
+    - git add .
+    - git commit -m "install ejs, sequelize"
+    - git push origin main
 
 ## Installation
 
