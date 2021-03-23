@@ -45,6 +45,8 @@ A geo-location based game for exploration
 17. Change hard-coded PORT to .env
     - we installed dotenv with Sequelize above (npm i --save dotenv)
     - src/app.module.ts - add config
+18. Heroku needs version in package.json and start script
+    - update package.json 
 
 ## Installation
 
@@ -105,3 +107,4 @@ Create Heroku app with Heroku Postgres (Hobby Dev - free) add-on.
 - [Stackoverflow TortoiseGit wincred - top answer](https://stackoverflow.com/questions/14000173/tortoisegit-save-user-authentication-credentials)
 - [Web App 2020 Fall](https://github.com/denisecase/findit)
 - [Favicon.io](https://favicon.io/)
+- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
