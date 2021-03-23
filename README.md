@@ -29,6 +29,11 @@ A geo-location based game for exploration
     - git add .
     - git commit -m "install ejs, sequelize"
     - git push origin main
+14. nest generate resource location
+    - REST API
+    - Y (yes, generate)
+
+
 
 ## Installation
 
@@ -68,3 +73,4 @@ $ npm run test:cov
 - [Nest MVC](https://docs.nestjs.com/techniques/mvc)
 - [Nest Sequelize](https://docs.nestjs.com/techniques/database#sequelize-integration)
 - [Nest Sequelize Postgres](https://www.freecodecamp.org/news/build-web-apis-with-nestjs-beginners-guide/)
+- [Stackoverflow TortoiseGit wincred - top answer](https://stackoverflow.com/questions/14000173/tortoisegit-save-user-authentication-credentials)
