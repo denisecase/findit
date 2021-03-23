@@ -47,6 +47,7 @@ A geo-location based game for exploration
     - src/app.module.ts - add config
 18. Heroku needs version in package.json and start script
     - update package.json 
+    - add Procfile (web: npm run start:prod)
 
 ## Installation
 
