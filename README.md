@@ -7,12 +7,26 @@ A geo-location based game for exploration
 2. Clone down to local machine
 3. Open PS in repo. Move up to parent folder and mk dir temp. cd into temp, run nest new findit.[1]
 4. Let it run, copy files into my repo, not overwriting this README.
-5. Add install/run/test commands (from temp Nest README).
-6. npm install ejs view engine (see [Nest MVC](https://docs.nestjs.com/techniques/mvc))
+5. Add install/run/test commands (from temp Nest README). Run locally: 
+  - npm install
+  - npm run start
+  - Open browser to http://localhost:3000/
+  - Verify, then stop the app (CTRL-C CTRL-C)
+6. npm install ejs (see [Nest MVC](https://docs.nestjs.com/techniques/mvc))
 7. npm install @nestjs/sequelize sequelize sequelize-typescript pg-hstore pg
 8. npm install --save-dev @types/sequelize
 9. npm install dotenv 
 10. nest generate module /core/database
+11. Run locally (see above). Verify and stop.
+12. If needed, complete git setup. If TortoiseGit:
+    - settings / git / remote / 
+    - add name and email
+    - settings / git / credential
+    - config type: local
+    - Helper: wincred
+    - Click Add New/Save, then Apply
+13. git add .
+14. git push origin main
 
 ## Installation
 
