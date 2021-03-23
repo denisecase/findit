@@ -5,9 +5,10 @@ A geo-location based game for exploration
 
 1. GitHub, create repo, initialize with README, .gitignore (Node), license
 2. Clone down to local machine
-3. Open PS in repo. Move up to parent folder and mk dir temp. cd into temp, run nest new findit.
+3. Open PS in repo. Move up to parent folder and mk dir temp. cd into temp, run nest new findit.[1]
 4. Let it run, copy files into my repo, not overwriting this README.
 5. Add install/run/test commands (from temp Nest README).
+6. Install ejs view engine (see [Nest MVC](https://docs.nestjs.com/techniques/mvc))
 
 ## Installation
 
@@ -44,3 +45,4 @@ $ npm run test:cov
 ## References
 
 - [Nest documentatation](https://docs.nestjs.com/)
+- [Nest MVC](https://docs.nestjs.com/techniques/mvc)
