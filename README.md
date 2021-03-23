@@ -40,3 +40,7 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## References
+
+- [Nest documentatation](https://docs.nestjs.com/)
