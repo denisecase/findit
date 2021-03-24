@@ -38,7 +38,7 @@ const sequelizeOptions = process.env.NODE_ENV === 'production'
         dialect: process.env.NODE_ENV === 'production' ? 'postgres' : 'sqlite',
         host: process.env.NODE_ENV === 'production' ? process.env.DB_HOST : 'localhost',
         storage: './dev.sqlite',
-        database: process.env.DB_PRODUCTION,
+        database: process.env.DATABASE_URL,
         username: process.env.DB_USER,
         port: parseInt(process.env.DB_PORT),
         password: process.env.DB_PASS,
