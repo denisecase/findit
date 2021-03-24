@@ -60,6 +60,11 @@ A geo-location based game for exploration
     - location/location.module.ts - add SequelizeModule, Location, imports, exports
     - location/location.service.ts - add InjectModel, Location, constructor, finish functions
     - location/entities/location.entity.ts - complete the code
+21. Seed data
+    - npm install --save nestjs-sequelize-seeder
+    - app.module.ts - add SeederModule
+    - location/location.seeder.ts - create file, add sample data
+    - location/location.module.ts - add the seeder
 
 ## Installation
 
