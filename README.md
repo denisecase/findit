@@ -16,8 +16,8 @@ A geo-location based game for exploration
 7. npm install --save @nestjs/sequelize sequelize sequelize-typescript pg-hstore pg
 8. npm install --save-dev @types/sequelize
 9. npm install --save dotenv 
-10. nest generate module /core/database
-11. Run locally (see above). Verify and stop.
+10. Run locally (see above).
+11. Verify and stop.
 12. If needed, complete git setup. If TortoiseGit:
     - settings / git / remote / 
     - add name and email
@@ -29,7 +29,7 @@ A geo-location based game for exploration
     - git add .
     - git commit -m "install ejs, sequelize"
     - git push origin main
-14. nest generate resource location
+14. nest generate resource location - answer prompts:
     - REST API
     - Y (yes, generate)
 15. Create favicon (e.g., [Favicon.io](https://favicon.io/))
@@ -49,6 +49,17 @@ A geo-location based game for exploration
     - update package.json 
     - add Procfile (web: npm run start:prod)
 19. Add client-side modules using temporary locations
+20. Server-side locations
+    - Verify npm install sequelize dependencies and dev-deps (above)
+    - npm install --save @nestjs/config
+    - npm install --save-dev sqlite3
+    - Review docs on [Nest sequelize integration](https://docs.nestjs.com/techniques/database#sequelize-integration)
+    - app.module.ts - add sequelize module and configure
+    - app.service.ts - add sequelize
+    - location/location.model.ts - create this file with your resource properties
+    - location/location.module.ts - add SequelizeModule, Location, imports, exports
+    - location/location.service.ts - add InjectModel, Location, constructor, finish functions
+    - location/entities/location.entity.ts - complete the code
 
 ## Installation
 
