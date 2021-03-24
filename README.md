@@ -48,6 +48,7 @@ A geo-location based game for exploration
 18. Heroku needs version in package.json and start script
     - update package.json 
     - add Procfile (web: npm run start:prod)
+19. Add client-side modules using temporary locations
 
 ## Installation
 
