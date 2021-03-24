@@ -15,6 +15,14 @@ import { LocationModule } from './location/location.module';
     SequelizeModule.forRoot({
       dialect: (process.env.NODE_ENV == 'dev') ? 'sqlite' : 'postgres',
       storage: (process.env.NODE_ENV == 'dev') ? './dev.sqlite' : process.env.DATABASE_URL,
+      ssl: (process.env.NODE_ENV == 'dev') ? false : true,
+      dialectOptions: {
+        "ssl": {"require":(process.env.NODE_ENV == 'dev') ? false : true }
+      },
+      database: process.env.DB_DATABASE,
+      password: process.env.DB_PASSWORD,
+      host: process.env.DB_HOSTNAME || 'localhost',
+      port: parseInt(process.env.DB_PORT ) || 5432,
       autoLoadModels: true,
       synchronize: true,
     }),

@@ -98,6 +98,15 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Heroku
+
+```PowerShell
+heroku update
+heroku logs --app findit-nest --tail
+heroku open --app findit-nest
+heroku pg:psql postgresql-trapezoidal-45903 --app findit-nest
+```
+
 ## Prerequisites for Publishing
 
 - [Heroku login](https://id.heroku.com/login)
@@ -126,3 +135,4 @@ Create Heroku app with Heroku Postgres (Hobby Dev - free) add-on.
 - [Web App 2020 Fall](https://github.com/denisecase/findit)
 - [Favicon.io](https://favicon.io/)
 - [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
+- ⭐ [VS Code - SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
