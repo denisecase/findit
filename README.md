@@ -72,8 +72,7 @@ npm install
 ```Powershell
 npm run prisma:in
 npm run db:push
-npm run prisma generate
-npm run migrate:dev
+npm run prisma:generate
 npm run seed
 ```
 
@@ -128,6 +127,10 @@ Create Heroku app with Heroku Postgres (Hobby Dev - free) add-on.
 - Heroku / This-Heroku-app / Overview / watch latest activity / View build progress (watch for any issues)
 - Heroku / This-Heroku-app / Open app 
 - Errors? Heroku / This-Heroku-app / More / View logs
+
+```Powershell
+heroku logs -n 200 -a findit-nest
+```
 
 ## References
 
