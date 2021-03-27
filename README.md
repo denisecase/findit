@@ -1,6 +1,11 @@
 # findit
 A geo-location based game for exploration
 
+## Links
+
+- [Source](https://github.com/denisecase/findit)
+- [App](https://findit-nest.herokuapp.com/)
+
 ## Stack
 
 - NestJS
