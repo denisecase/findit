@@ -1,57 +1,15 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { SequelizeModule } from '@nestjs/sequelize';
-import { SeederModule } from 'nestjs-sequelize-seeder';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LocationModule } from './location/location.module';
+import { PrismaModule } from './prisma/prisma.module';
 
-const optionsDevelopment = {
-  dialect: 'sqlite',
-  storage: './dev.sqlite',
-  autoLoadModels: true,
-  synchronize: true,
-}
-
-const optionsProduction = {
-  dialect: 'postgres',
-  host: process.env.DB_HOST,
-  database: process.env.DB_PRODUCTION,
-  username: process.env.DB_USER,
-  port: parseInt(process.env.DB_PORT),
-  password: process.env.DB_PASS,
-  autoLoadModels: true,
-  synchronize: true,
-}
-
-const sequelizeOptions = process.env.NODE_ENV === 'production'
-  ? optionsProduction : optionsDevelopment;
-;
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: '.env'
-    }),
-    SequelizeModule.forRoot(
-      {
-        dialect: process.env.NODE_ENV === 'production' ? 'postgres' : 'sqlite',
-        storage: process.env.NODE_ENV === 'production' ? '': './dev.sqlite',
-        protocol: process.env.NODE_ENV === 'production' ? 'postgres': '',
-        autoLoadModels: true,
-        synchronize: true,
-      }
-    ),
     LocationModule,
-    SeederModule.forRoot({
-      runOnlyIfTableIsEmpty: false,
-      isGlobal: true,
-      logging: true,
-      enableAutoId: true,
-      autoIdFieldName: 'id',
-    }),
+    PrismaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,18 +1,13 @@
 import { Module } from '@nestjs/common';
-import { SequelizeModule } from '@nestjs/sequelize';
-import { Location } from './location.model';
 import { LocationService } from './location.service';
 import { LocationController } from './location.controller';
-import { SeederModule } from 'nestjs-sequelize-seeder';
-import { LocationSeeder } from './location.seeder';
+import { PrismaModule } from '../prisma/prisma.module';
+import { LocationCrudService } from './crud/location-crud.service';
+import { LocationCrudController } from './crud/location-crud.controller';
 
 @Module({
-  imports: [
-    SequelizeModule.forFeature([Location]), 
-    SeederModule.forFeature([LocationSeeder]),
-  ],
-  controllers: [LocationController],
-  providers: [LocationService],
-  exports: [SequelizeModule],
+  imports: [PrismaModule],
+  controllers: [LocationController, LocationCrudController],
+  providers: [LocationService, LocationCrudService],
 })
-export class LocationModule { }
+export class LocationModule {}

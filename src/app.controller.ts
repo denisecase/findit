@@ -1,4 +1,4 @@
-import { Controller, Get, Res } from '@nestjs/common';
+import { Controller, Get, Res, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Response } from 'express';
 
@@ -6,16 +6,14 @@ import { Response } from 'express';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  // @Get()
-  // getHello(): string {
-  //   return this.appService.getHello();
-  // }
+  @Get('/hello')
+  getHello(): string {
+    return this.appService.getHello();
+  }
 
   @Get()
-  root(@Res() res: Response) {
-    return res.render(
-      this.appService.getViewName(),
-      { message: 'Hello world!' },
-    );
+  @Render('index')
+  root() {
+    return { message: 'Hello world!' };
   }
 }

@@ -1,39 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/sequelize';
-import { Location } from './location.model';
-import { CreateLocationDto } from './dto/create-location.dto';
-import { UpdateLocationDto } from './dto/update-location.dto';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class LocationService {
+  constructor(private readonly prisma: PrismaService) {}
 
-    constructor(
-      @InjectModel(Location)
-      private locationModel: typeof Location,
-    ) {}
-
-  create(createLocationDto: CreateLocationDto) {
-    return 'This action adds a new location';
+  async create(data: Prisma.LocationCreateArgs) {
+    return await this.prisma.location.create(data);
   }
 
-  async findAll(): Promise<Location[]> {
-    return this.locationModel.findAll();
+  // async delete(data: Prisma.LocationFindUniqueArgs){
+  //   return await this.prisma.location.delete(data);
+  // }
+
+  async findMany(data: Prisma.LocationFindManyArgs) {
+    return await this.prisma.location.findMany(data);
   }
 
-  findOne(id: string): Promise<Location> {
-    return this.locationModel.findOne({
-      where: {
-        id,
-      },
-    });
-  }
-
-  update(id: number, updateLocationDto: UpdateLocationDto) {
-    return `This action updates a #${id} location`;
-  }
-
-  async remove(id: string): Promise<void> {
-    const location = await this.findOne(id);
-    await location.destroy();
+  async findUnique(data: Prisma.LocationFindUniqueArgs) {
+    return await this.prisma.location.findUnique(data);
   }
 }

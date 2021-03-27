@@ -1,20 +1,20 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Put,
-  Param,
+  Controller,
   Delete,
+  Get,
+  Param,
+  Post,
+  Put,
 } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
-import { LocationService } from './location.service';
-import { CreateLocationDto } from './dto/create-location.dto';
-import { UpdateLocationDto } from './dto/update-location.dto';
+import { LocationCrudService } from './location-crud.service';
+import { CreateLocationDto } from './../dto/create-location.dto';
+import { UpdateLocationDto } from './../dto/update-location.dto';
 
-@Controller('location')
-export class LocationController {
-  constructor(private readonly locationService: LocationService) {}
+@Controller('crud/location')
+export class LocationCrudController {
+  constructor(private readonly locationCrudService: LocationCrudService) {}
 
   @Post()
   async create(@Body() data: CreateLocationDto) {
@@ -25,9 +25,10 @@ export class LocationController {
         west: data.west,
         south: data.south,
         east: data.east,
+        isActive: data.isActive,
       },
     };
-    return await this.locationService.create(dto);
+    return await this.locationCrudService.create(dto);
   }
 
   @Get()
@@ -35,7 +36,7 @@ export class LocationController {
     const dto: Prisma.LocationFindManyArgs = {
       where: {},
     };
-    return await this.locationService.findMany(dto);
+    return await this.locationCrudService.findMany(dto);
   }
 
   @Get(':id')
@@ -43,7 +44,7 @@ export class LocationController {
     const dto: Prisma.LocationFindUniqueArgs = {
       where: { id: +id },
     };
-    return await this.locationService.findUnique(dto);
+    return await this.locationCrudService.findUnique(dto);
   }
 
   @Put(':id')

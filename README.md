@@ -1,6 +1,17 @@
 # findit
 A geo-location based game for exploration
 
+## Stack
+
+- NestJS
+- TypeScript
+- Prisma 
+- SQLite (development)
+- Postgres (production)
+- Heroku
+- Heroku Postgres
+- EJS View Engine
+
 ## Create from Scratch
 
 1. GitHub, create repo, initialize with README, .gitignore (Node), license
@@ -13,8 +24,6 @@ A geo-location based game for exploration
     - npm run start
     - Open browser to http://localhost:3000/
     - Verify, then stop the app (CTRL-C CTRL-C)
-7. npm install --save @nestjs/sequelize sequelize sequelize-typescript pg-hstore pg
-8. npm install --save-dev @types/sequelize
 9. npm install --save dotenv 
 10. Run locally (see above).
 11. Verify and stop.
@@ -27,7 +36,7 @@ A geo-location based game for exploration
     - Click Add New/Save, then Apply
 13. Git add / commit / push new content:
     - git add .
-    - git commit -m "install ejs, sequelize"
+    - git commit -m "updates here"
     - git push origin main
 14. nest generate resource location - answer prompts:
     - REST API
@@ -42,60 +51,51 @@ A geo-location based game for exploration
     - src/main.ts - enable Express, folders, view engine
     - src/app.controller.ts - prepare for view response
     - src/app.service.ts - provide view name (index)
-17. Change hard-coded PORT to .env
-    - we installed dotenv with Sequelize above (npm i --save dotenv)
-    - src/app.module.ts - add config
 18. Heroku needs version in package.json and start script
     - update package.json 
     - add Procfile (web: npm run start:prod)
-19. Add client-side modules using temporary locations
-20. Server-side locations
-    - Verify npm install sequelize dependencies and dev-deps (above)
-    - npm install --save @nestjs/config
-    - npm install --save-dev sqlite3
-    - Review docs on [Nest sequelize integration](https://docs.nestjs.com/techniques/database#sequelize-integration)
-    - app.module.ts - add sequelize module and configure
-    - app.service.ts - add sequelize
-    - location/location.model.ts - create this file with your resource properties
-    - location/location.module.ts - add SequelizeModule, Location, imports, exports
-    - location/location.service.ts - add InjectModel, Location, constructor, finish functions
-    - location/entities/location.entity.ts - complete the code
-21. Seed data
-    - npm install --save nestjs-sequelize-seeder
-    - app.module.ts - add SeederModule
-    - location/location.seeder.ts - create file, add sample data
-    - location/location.module.ts - add the seeder
+19. Add Prisma to allow switching datastore from SQLite, to Postgres, to Atlas
 
 ## Installation
 
-```bash
-$ npm install
+```Powershell
+npm install
+```
+
+## After changing data schema
+
+```Powershell
+npm run prisma:in
+npm run db:push
+npm run prisma generate
+npm run migrate:dev
+npm run seed
 ```
 
 ## Run the app
 
-```bash
+```Powershell
 # development
-$ npm run start
+npm run start
 
 # watch mode
-$ npm run start:dev
+npm run start:dev
 
 # production mode
-$ npm run start:prod
+npm run start:prod
 ```
 
 ## Test
 
-```bash
+```Powershell
 # unit tests
-$ npm run test
+npm run test
 
 # e2e tests
-$ npm run test:e2e
+npm run test:e2e
 
 # test coverage
-$ npm run test:cov
+npm run test:cov
 ```
 
 ## Heroku
@@ -110,8 +110,7 @@ heroku pg:psql postgresql-trapezoidal-45903 --app findit-nest
 ## Prerequisites for Publishing
 
 - [Heroku login](https://id.heroku.com/login)
-- [Heroku CLI](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
-- Optional: [PostgreSQL local install](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+- Optional: [Heroku CLI](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
 
 Create Heroku app with Heroku Postgres (Hobby Dev - free) add-on.
 
@@ -129,10 +128,17 @@ Create Heroku app with Heroku Postgres (Hobby Dev - free) add-on.
 
 - [Nest documentatation](https://docs.nestjs.com/)
 - [Nest MVC](https://docs.nestjs.com/techniques/mvc)
-- [Nest Sequelize](https://docs.nestjs.com/techniques/database#sequelize-integration)
-- [Nest Sequelize Postgres](https://www.freecodecamp.org/news/build-web-apis-with-nestjs-beginners-guide/)
 - [Stackoverflow TortoiseGit wincred - top answer](https://stackoverflow.com/questions/14000173/tortoisegit-save-user-authentication-credentials)
 - [Web App 2020 Fall](https://github.com/denisecase/findit)
 - [Favicon.io](https://favicon.io/)
 - [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
 - ⭐ [VS Code - SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
+- [Prisma Examples /ts/REST](https://github.com/prisma/prisma-examples)
+- [NestJS Prisma Recipe](https://docs.nestjs.com/recipes/prisma)
+- [NestJS-Prisma-Starter](https://github.com/fivethree-team/nestjs-prisma-starter)
+- [Prisma Data Model](https://www.prisma.io/docs/concepts/components/prisma-schema/data-model)
+- [Best practice for instantiating PrismaClient with Next.js](https://www.prisma.io/docs/support/help-articles/nextjs-prisma-client-dev-practices)
+- [Location of PrismaClient](https://www.prisma.io/docs/concepts/components/prisma-client/working-with-prismaclient/generating-prisma-client)
+- [Nest Prisma CRUD](https://github.com/johannesschobel/nest-prisma-crud)
+- [Prisma Seeding](https://www.prisma.io/docs/guides/application-lifecycle/seed-database)
+- [Prisma Grading App](https://github.com/2color/real-world-grading-app)
