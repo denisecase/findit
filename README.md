@@ -17,6 +17,20 @@ A geo-location based game for exploration
 - Heroku Postgres
 - EJS View Engine
 
+## Security
+
+- [HTTPS redirect](https://www.npmjs.com/package/heroku-ssl-redirect)
+- [Helmet (better headers)](https://stackoverflow.com/questions/56116660/how-to-use-helmet-js-from-typescript)
+- [Enable CORS -Cross-origin resource sharing (CORS)](https://ru-nestjs-docs.netlify.app/techniques/security)
+- [csurf for CSRF/XSRF](https://ru-nestjs-docs.netlify.app/techniques/security)
+- [csurf requires Express Session](https://www.npmjs.com/package/express-session)
+- [Rate Limits](https://ru-nestjs-docs.netlify.app/techniques/security)
+
+## Audits
+
+- [Google Lighthouse](https://developers.google.com/web/tools/lighthouse)
+- [Codacy static analysis](https://www.codacy.com/)
+
 ## Create from Scratch
 
 1. GitHub, create repo, initialize with README, .gitignore (Node), license
@@ -151,3 +165,4 @@ heroku logs -n 200 -a findit-nest
 - [Prisma Seeding](https://www.prisma.io/docs/guides/application-lifecycle/seed-database)
 - [Prisma Grading App](https://github.com/2color/real-world-grading-app)
 - [No more multiple providers](https://github.com/prisma/prisma/issues/3834)
+- [PWA](https://github.com/denisecase/js-gui-pwa-fact)
