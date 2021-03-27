@@ -147,3 +147,4 @@ Create Heroku app with Heroku Postgres (Hobby Dev - free) add-on.
 - [Nest Prisma CRUD](https://github.com/johannesschobel/nest-prisma-crud)
 - [Prisma Seeding](https://www.prisma.io/docs/guides/application-lifecycle/seed-database)
 - [Prisma Grading App](https://github.com/2color/real-world-grading-app)
+- [No more multiple providers](https://github.com/prisma/prisma/issues/3834)
