@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { join } from 'path';
 import * as dotenv from 'dotenv';
 import Helmet from 'helmet';
@@ -39,6 +40,18 @@ async function bootstrap() {
 
   // read .env variables into process.env
   dotenv.config();
+
+  // generate Swagger API
+  const config = new DocumentBuilder()
+    .setTitle('Findit!')
+    .setDescription('Findit API built with Swagger')
+    .setVersion('1.0')
+    .addTag('Locations to Find')
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('api', app, document);
+
+  // start listening
   await app.listen(process.env.PORT);
 }
 

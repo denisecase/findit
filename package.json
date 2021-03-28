@@ -36,6 +36,7 @@
     "@nestjs/core": "latest",
     "@nestjs/mapped-types": "latest",
     "@nestjs/platform-express": "latest",
+    "@nestjs/swagger": "^4.8.0",
     "@prisma/client": "latest",
     "@types/csurf": "^1.11.0",
     "@types/express-rate-limit": "^5.1.1",
@@ -50,7 +51,8 @@
     "reflect-metadata": "latest",
     "resource": "^0.5.5",
     "rimraf": "latest",
-    "rxjs": "latest"
+    "rxjs": "latest",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "@nestjs/cli": "latest",
