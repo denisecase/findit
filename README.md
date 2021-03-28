@@ -15,7 +15,6 @@ A geo-location based game for exploration
 - NestJS
 - TypeScript
 - Prisma 
-- SQLite (development)
 - Postgres (production)
 - Heroku
 - Heroku Postgres
