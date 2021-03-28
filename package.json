@@ -49,7 +49,7 @@
     "helmet": "^4.4.1",
     "heroku-ssl-redirect": "^0.1.1",
     "reflect-metadata": "latest",
-    "resource": "^0.5.5",
+    "resource": "^0.8.1",
     "rimraf": "latest",
     "rxjs": "latest",
     "swagger-ui-express": "^4.1.6"
