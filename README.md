@@ -31,6 +31,7 @@ A geo-location based game for exploration
 
 - [Google Lighthouse](https://developers.google.com/web/tools/lighthouse)
 - [Codacy static analysis](https://www.codacy.com/)
+- [Snyk security analysis](https://app.snyk.io/org/denisecase)
 
 ## Create from Scratch
 
