@@ -4,5 +4,5 @@ export class CreateLocationDto {
   west: number;
   south: number;
   east: number;
-  isActive: boolean;
+  isActive: string;
 }

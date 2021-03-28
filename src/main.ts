@@ -30,7 +30,7 @@ async function bootstrap() {
       cookie: { secure: true },
     }),
   );
-  app.use(Csurf());
+  // app.use(Csurf());
   app.use(
     RateLimit({
       windowMs: 15 * 60 * 1000, // 15 minutes

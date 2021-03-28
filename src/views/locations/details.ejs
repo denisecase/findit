@@ -32,7 +32,7 @@
 
 
   <!-- Custom styles at the end -->
-  <link href='./styles/style.css' rel='stylesheet'  />
+  <link href='styles/style.css' rel='stylesheet'  />
 
   <!-- Insert favicon link tags from favicon.io -->
   <!-- Unzip favicon files into public/images/ -->
@@ -40,7 +40,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="manifest" href="./manifest.json">
+  <link rel="manifest" href="manifest.json">
   <link rel="canonical" href="https://findit-nest.herokuapp.com/"/>
 
 
@@ -49,7 +49,7 @@
     // AFter all content has loaded, register the service worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js')
+        navigator.serviceWorker.register('service-worker.js')
       })
     }
   </script>
@@ -61,7 +61,20 @@
 
 <body class="page-container">
 
-  <%- include ('header.ejs') %>
+<!--  Resusable header included in layout.ejs -->
+<!-- See https://mdbootstrap.com/docs/standard/navigation/navbar/ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-2">
+  <div class="container-fluid justify-content-start">
+    <a class="navbar-brand" href="/">Findit!</a>
+
+      <!-- Left links -->
+      <ul class="navbar-nav">
+        <li class="nav-item"> <a class="nav-link" href="/locations">Locations</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="/api">API</a> </li>
+      </ul>
+
+  </div> <!-- Container wrapper -->
+</nav><!-- Navbar -->
 
     <main class="container context mt-5">
       <div class="row">
@@ -74,9 +87,46 @@
 
       <div id="both" class="d-flex flex-column align-items-stretch">
 
-        <div id="one" class="bigcentered">Click to start!</div>
+       <!--
+*  Location delete view
+*  Uses HTML and embedded JavaScript (EJS) 
+*  to dyanmically create a webpage to display the item to delete.
+*
+* @author Denise Case <dcase@nwmissouri.edu>
+-->
+  
+<% if (location.error) { %>
+  <div class="alert alert-danger" role="alert"><%- location.error %></div>
+  <% } %>
+  
+  <% if(location) { %>
 
-        <div id="two" class="bigcentered">Check Progress</div>
+    <div class="list-group text-center">
+
+        <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+          <h5 class="mb-1">
+            <%= location.id %>: <%= location.name%>
+          </h5>
+          <small>
+            <%= location.north %>,<%= location.west %>
+                <br>
+                <%= location.south %>,<%= location.east %>
+                <br> <br> <br>
+          </small>
+        </a>
+        <p class="mb-1">
+          <a class="btn btn-success edit" href="/locations">Done</a>
+        </p>
+            
+
+    </div>
+    <% } %>
+
+      <!-- if result is empty -->
+      <% if(!location) { %>
+        <p class="text-center">Location not found!</p>
+        <% } %>
+          <br>
 
       </div>
 
@@ -89,7 +139,21 @@
     <br>
     <br>
 
-    <%- include ('footer.ejs') %>
+  <!--  Resusable footer included in layout.ejs -->
+
+<footer class="footer fixed-bottom bg-light mx-0 py-3 text-center">
+ 
+  <a target="_blank" rel="noopener" href="https://findit-nest.herokuapp.com/">FindIt!</a>
+  &nbsp; &#9670; &nbsp;
+ 
+  <a class="btn btn-light btn-sm" href="https://github.com/denisecase/findit"
+    target="_blank" rel="noopener" role="button">
+ 
+    <i class="fas fa-star"></i>   
+  GitHub 
+  <i class="fab fa-github ml-1"></i></a>
+
+</footer>
 
       <!-- Console error onloading -->
       <!-- see https://developer.chrome.com/extensions/contentSecurityPolicy -->
@@ -107,7 +171,7 @@
 
 <!-- Custom JS -->
 <!-- Add module if appropriate -->
-<script type="module" src="./scripts/main.js"></script>
+<script type="module" src="scripts/main.js"></script>
 
 </body>
 
