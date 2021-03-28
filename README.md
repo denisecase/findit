@@ -1,4 +1,5 @@
 # findit
+
 A geo-location based game for exploration
 
 ## Links
@@ -33,16 +34,18 @@ A geo-location based game for exploration
 
 ## Create from Scratch
 
-1. GitHub, create repo, initialize with README, .gitignore (Node), license
+1. GitHub new repo, with README, .gitignore (Node), license
 2. Clone down to local machine
-3. Open PS in repo. Move up to parent folder and mk dir temp. cd into temp, run nest new findit.[1]
-4. Let it run, copy files into my repo, not overwriting this README.
-5. Add install/run/test commands (from temp Nest README). 
-6. Run locally: 
-    - npm install
-    - npm run start
-    - Open browser to http://localhost:3000/
-    - Verify, then stop the app (CTRL-C CTRL-C)
+3. Open PS in repo. 
+4. Move to parent folder, mk dir temp. 
+5. cd into temp, run nest new findit.[1]
+6. Let it run, copy files into my repo, not overwriting this README.
+7. Add install/run/test commands (from temp Nest README). 
+8. Run locally: 
+   - npm install
+   - npm run start
+   - Open browser to http://localhost:3000/
+   - Verify, then stop the app (CTRL-C CTRL-C)
 9. npm install --save dotenv 
 10. Run locally (see above).
 11. Verify and stop.
@@ -65,15 +68,15 @@ A geo-location based game for exploration
 16. Change default response to Express view
     - npm install --save ejs
     - Create ./public/images - add favicon zip contents 
-    - Create ./public/styles - add style.css to get fixed header/footer
+    - Create ./public/styles - add style.css 
     - Create ./views with footer.ejs, header.ejs, index.ejs
     - src/main.ts - enable Express, folders, view engine
     - src/app.controller.ts - prepare for view response
     - src/app.service.ts - provide view name (index)
-18. Heroku needs version in package.json and start script
+17. Heroku needs version in package.json and start script
     - update package.json 
     - add Procfile (web: npm run start:prod)
-19. Add Prisma to allow switching datastore from SQLite, to Postgres, to Atlas
+18. Add Prisma to support SQLite, Postgres, Atlas
 
 ## Installation
 
@@ -164,5 +167,5 @@ heroku logs -n 200 -a findit-nest
 - [Nest Prisma CRUD](https://github.com/johannesschobel/nest-prisma-crud)
 - [Prisma Seeding](https://www.prisma.io/docs/guides/application-lifecycle/seed-database)
 - [Prisma Grading App](https://github.com/2color/real-world-grading-app)
-- [No more multiple providers](https://github.com/prisma/prisma/issues/3834)
+- [Prisma: Single provider](https://github.com/prisma/prisma/issues/3834)
 - [PWA](https://github.com/denisecase/js-gui-pwa-fact)
