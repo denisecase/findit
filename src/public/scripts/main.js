@@ -28,6 +28,7 @@ async function speak(text) {
  */
 async function targetHandler() {
   game = await new Game();
+  const ans = await game.start();
   const targetLocation = game.target.location;
   const targetText = game.target.text;
   document.querySelector('#one').innerHTML = targetText;

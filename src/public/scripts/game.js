@@ -17,13 +17,18 @@ import Target from './target.js';
  * @author Denise Case
  */
 export default class {
-
   /**
    * Game constructor ..............................
    */
   constructor() {
+    console.log("Constructing new game")
     this.target = new Target();
-    console.log(`Game constructor target: ${JSON.stringify(this.target)}`);
+  }
+
+  async start() {
+    console.log("Starting game.start()")
+    const response = await this.target.init();
+    console.log(`Ending game.start() with new game: ${JSON.stringify(this.target)}`);
   }
 
   // class methods.........................
@@ -31,13 +36,13 @@ export default class {
   /**
    * updateProgress() checks device location and offers guidance.
    */
- async updateProgress(){
+  async updateProgress() {
     console.log('Start game.updateProgress()');
     const checkTarget = this.target;
     var result = {
       progressText: 'I dunno',
       deviceLocation: null,
-    }
+    };
 
     function successFunction(position) {
       function isInside(device, bounds) {
@@ -61,8 +66,12 @@ export default class {
       result.progressText = isInside(result.deviceLocation, checkTarget)
         ? 'Congratulations - you found this location!'
         : 'Keep looking!';
-      console.log(`Result:${ result.progressText}  for ${JSON.stringify(result.deviceLocation)}`);
-      document.querySelector('#two').innerHTML= result.progressText;
+      console.log(
+        `Result:${result.progressText}  for ${JSON.stringify(
+          result.deviceLocation,
+        )}`,
+      );
+      document.querySelector('#two').innerHTML = result.progressText;
     }
 
     function errorFunction(err) {
@@ -70,7 +79,7 @@ export default class {
       console.warn(s);
       result.progressText = err.message;
       console.log(result.progressText);
-      document.querySelector('#two').innerHTML= result.progressText;
+      document.querySelector('#two').innerHTML = result.progressText;
     }
 
     const geolocationOptions = {

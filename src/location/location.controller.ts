@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Param, Render, Res, Redirect } from '@nestjs/common';
-import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags, } from '@nestjs/swagger';
+import {  ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Prisma } from '@prisma/client';
 import { Response } from 'express';
 import { LocationService } from './location.service';
@@ -17,12 +17,16 @@ import { identity } from 'rxjs';
  * 
  * @Render indicates which view to render
  */
+@ApiTags('locations'  )
 @Controller('locations')
 export class LocationController {
   constructor(private readonly locationService: LocationService) { }
 
   // handle two requests for JSON (HTTP GET)
 
+  @ApiOperation({ summary: 'Get JSON for all locations' })
+  @ApiResponse({ status: 201, description: 'JSON for all locations is returned.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Get('findAll/')
   async findAll() {
     const dto: Prisma.LocationFindManyArgs = {
@@ -31,6 +35,9 @@ export class LocationController {
     return await this.locationService.findMany(dto);
   }
 
+  @ApiOperation({ summary: 'Get JSON location for a given id' })
+  @ApiResponse({ status: 201, description: 'JSON location for a given id is returned.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Get('findOne/:id')
   async findOne(@Param('id') id: string) {
     const dto: Prisma.LocationFindUniqueArgs = {
@@ -41,6 +48,9 @@ export class LocationController {
 
   // handle one request for a random location (as JSON) 
 
+  @ApiOperation({ summary: 'Get JSON for a random location' })
+  @ApiResponse({ status: 201, description: 'JSON for a random location is returned.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Get('random/')
   async findRandom() {
     const dto: Prisma.LocationFindManyArgs = {
@@ -51,6 +61,9 @@ export class LocationController {
 
   // handle four-five requests to show webpages (HTTP GET)
 
+  @ApiOperation({ summary: 'Show default (list) locations page' })
+  @ApiResponse({ status: 201, description: 'The default (list) page is displayed.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Get('/')
   @Render('./locations/index')
   async showIndex() {
@@ -60,6 +73,9 @@ export class LocationController {
     return { locations: await this.locationService.findMany(dto) };
   }
 
+  @ApiOperation({ summary: 'Show create page' })
+  @ApiResponse({ status: 201, description: 'The create page is displayed.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Get('create/')
   @Render('./locations/create')
   async showCreate() {
@@ -73,6 +89,9 @@ export class LocationController {
     return { location };
   }
 
+  @ApiOperation({ summary: 'Show details page' })
+  @ApiResponse({ status: 201, description: 'The details page is displayed.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Get('details/:id')
   @Render('./locations/details')
   async showDetails(@Param('id') id: string) {
@@ -90,6 +109,9 @@ export class LocationController {
     }
   }
 
+  @ApiOperation({ summary: 'Show edit page' })
+  @ApiResponse({ status: 201, description: 'The edit page is displayed.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Get('edit/:id')
   @Render('./locations/edit')
   async showEdit(@Param('id') id: string) {
@@ -107,6 +129,9 @@ export class LocationController {
     }
   }
 
+  @ApiOperation({ summary: 'Show delete page' })
+  @ApiResponse({ status: 201, description: 'The delete page is displayed.' })
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Get('delete/:id')
   @Render('./locations/delete')
   async showDelete(@Param('id') id: string) {

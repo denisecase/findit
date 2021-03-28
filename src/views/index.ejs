@@ -3,14 +3,19 @@
 
 <head>
 
+  <!--  establish early connections to important third-party origins -->
+
+  <link rel="preconnect" href="use.fontawesome.com" />
+  <link rel="preconnect" href="fonts.googleapis.com" />
+  <link rel="preconnect" href="cdnjs.cloudflare.com" />
+  
   <!-- basic responsive attributes -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Geolocation app built with NestJS and Prisma">
   <meta name="author" content="Denise Case">
-  <meta name="theme-color" content="#FFFFFF"/>
-
+  <meta name="theme-color" content="#FFFFFF" />
   <title>
     <%= (typeof title==="undefined" ? "Findit!" : title) %>
   </title>
@@ -24,37 +29,34 @@
      -->
 
   <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
   <!-- MDB -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+    integrity="sha512-aQX0wElRuvqZ1bVvsknO9jDXwvVI71vwYLuEDZ8QqMJxPozZPPCCmylpHx4ngmeIz7Bg6FfE4Ay+CfDVFqjy+A=="
+    crossorigin="anonymous" />
 
+  <!-- MDB JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"
+    integrity="sha512-Bbn2GxMX2ePx4if/heU6eS4avbu2ac+V1q2jb4mlh1WofyrKV/vm6/mMWmuzgoHQlxvgg7dPuyTtTZSX/Zgk3Q=="
+    crossorigin="anonymous"></script>
 
   <!-- Custom styles at the end -->
-  <link href='./styles/style.css' rel='stylesheet'  />
+  <link href='./styles/style.css' rel='stylesheet' />
 
   <!-- Insert favicon link tags from favicon.io -->
   <!-- Unzip favicon files into public/images/ -->
 
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
   <link rel="manifest" href="./manifest.json">
-  <link rel="canonical" href="https://findit-nest.herokuapp.com/"/>
+  <link rel="canonical" href="https://findit-nest.herokuapp.com/" />
 
-
-  <script>
-    // If service workers are supported by user browser
-    // AFter all content has loaded, register the service worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js')
-      })
-    }
-  </script>
-
-
+  <script src="./scripts/load-service-worker.js"></script>
 </head>
 
 <!--wrap the whole page (header, footer, main) -->
@@ -72,15 +74,15 @@
         <br>
         <br>
 
-      <div id="both" class="d-flex flex-column align-items-stretch">
+        <div id="both" class="d-flex flex-column align-items-stretch">
 
-        <div id="one" class="bigcentered">Click to start!</div>
+          <div id="one" class="bigcentered">Click to start!</div>
 
-        <div id="two" class="bigcentered">Check Progress</div>
+          <div id="two" class="bigcentered">Check Progress</div>
 
-      </div>
+        </div>
 
-      <!-- end core page here-->
+        <!-- end core page here-->
 
       </div>
       </div>
@@ -91,23 +93,11 @@
 
     <%- include ('footer.ejs') %>
 
-      <!-- Console error onloading -->
-      <!-- see https://developer.chrome.com/extensions/contentSecurityPolicy -->
 
-      <!--
-    Get current MD5 JS:
-    
-    https://mdbootstrap.com/docs/standard/getting-started/installation/            
-    Material Design for Bootstrap fonts and icons 
-    preload above for improved performance
-     -->
 
-      <!-- MDB -->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
-
-<!-- Custom JS -->
-<!-- Add module if appropriate -->
-<script type="module" src="./scripts/main.js"></script>
+      <!-- Custom JS -->
+      <!-- Add module if appropriate -->
+      <script type="module" src="./scripts/main.js"></script>
 
 </body>
 

@@ -43,18 +43,6 @@
   <link rel="manifest" href="manifest.json">
   <link rel="canonical" href="https://findit-nest.herokuapp.com/" />
 
-
-  <script>
-    // If service workers are supported by user browser
-    // AFter all content has loaded, register the service worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
-      })
-    }
-  </script>
-
-
 </head>
 
 <!--wrap the whole page (header, footer, main) -->
@@ -110,11 +98,11 @@
                     Edit Location
                   </div>
                   <div class="card-body">
-                    <form action="/locations/save/<%= location.id %>" method="post">
+                    <form action="save/<%=location.id%>" method="post">
 
                       <div class="form-group">
-                        <label for="id">North (latitude from -90 to 90) </label>
-                        <input type="id" class="form-control" id="id" name="id" 
+                        <label for="id">Location id </label>
+                        <input type="number" class="form-control" id="id" name="id" 
                           value="<%= location.id %>" autocomplete="off" disabled>
                       </div>
                       <br>
@@ -155,14 +143,14 @@
                       <br>
                       
                       <p class="mb-1">
-                        <a class="btn btn-light edit" href="/locations">Cancel</a>
+                        <a class="btn btn-light edit" href="./locations">Cancel</a>
                       </p>
                       <br> 
 
                       <br>
                       <div class="form-group">
                         <input type="submit" class="btn btn-info" 
-                        title="Submits PUT /locations/save/:id request to save edit with update dto" value="Save" />
+                        title="Submits POST ./locations/save/:id request to save edit with update dto" value="Save" />
                       </div>
                     </form>
                   </div>

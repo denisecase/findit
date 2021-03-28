@@ -109,7 +109,7 @@ if (workbox) {
     new workbox.strategies.CacheFirst({
       cacheName: `${appName}-images`,
       plugins: [
-        new workbox.expiration.Plugin({
+        new workbox.expiration.ExpirationPlugin({
           maxAgeSeconds: maxAgeWeek, // keep images for a week
           maxEntries: maxEntries,  // if more than max entries, delete the oldest
           purgeOnQuotaError: true
@@ -138,7 +138,10 @@ if (workbox) {
           console.log(`Workbox got content from cache ${appName}-static `)
           return cache.addAll([
             '.',
-            'scripts/main.js',
+            './scripts/game.js',
+            './scripts/init-locations.js',
+            './scripts/main.js',
+            './scripts/target.js',
           ])
         })
         .catch(error => { console.error(`Error in install event: ${error} `) })

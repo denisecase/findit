@@ -43,18 +43,6 @@
   <link rel="manifest" href="manifest.json">
   <link rel="canonical" href="https://findit-nest.herokuapp.com/" />
 
-
-  <script>
-    // If service workers are supported by user browser
-    // AFter all content has loaded, register the service worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js')
-      })
-    }
-  </script>
-
-
 </head>
 
 <!--wrap the whole page (header, footer, main) -->
@@ -69,8 +57,8 @@
 
       <!-- Left links -->
       <ul class="navbar-nav">
-        <li class="nav-item"> <a class="nav-link" href="/locations">Locations</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="/api">API</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="./locations">Locations</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="./api">API</a> </li>
       </ul>
 
     </div> <!-- Container wrapper -->
@@ -148,14 +136,14 @@
                       <br>
 
                       <p class="mb-1">
-                        <a class="btn btn-light edit" href="/locations">Cancel</a>
+                        <a class="btn btn-light edit" href="./locations">Cancel</a>
                       </p>
                       <br> 
 
                   
                       <div class="form-group">
                         <input type="submit" class="btn btn-info" 
-                        title="Submits POST /locations/save request to save new with create dto" value="Create" />
+                        title="Submits POST ./locations/save request to save new with create dto" value="Create" />
                       </div>
                     </form>
                   </div>
