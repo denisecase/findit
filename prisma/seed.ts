@@ -170,7 +170,7 @@ const userData: Prisma.UserCreateInput[] = [
 ]
 
 // A `main` function to enable async/await
-async function main() {
+async function main(): Promise<void> {
   await seedUsers()
   await seedLocations()
 }
@@ -184,10 +184,10 @@ main()
     await prisma.$disconnect()
   })
 
-  /**
-   * Function seedUsers() creates some sample users.
-   */
-async function seedUsers() {
+/**
+ * Function seedUsers() creates some sample users.
+ */
+async function seedUsers(): Promise<void> {
   console.log(`Start seeding users...`)
   for (const d of userData) {
     try {
@@ -204,7 +204,7 @@ async function seedUsers() {
 /**
  * Function seedLocations() creates some sample locations.
  */
-async function seedLocations() {
+async function seedLocations(): Promise<void> {
   console.log(`Start seeding locations...`)
   for (const d of locationData) {
     try {

@@ -5,10 +5,7 @@ import { LocationModule } from './location/location.module';
 import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
-  imports: [
-    LocationModule,
-    PrismaModule,
-  ],
+  imports: [LocationModule, PrismaModule],
   controllers: [AppController],
   providers: [AppService],
 })

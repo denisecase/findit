@@ -21,18 +21,21 @@ async function bootstrap() {
   app.use(sslRedirect());
   app.use(Helmet());
   app.enableCors();
-  app.use(Session({
-    secret: 'ilovecats',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-  }))
+  app.use(
+    Session({
+      secret: 'ilovecats',
+      resave: false,
+      saveUninitialized: true,
+      cookie: { secure: true },
+    }),
+  );
   app.use(Csurf());
   app.use(
     RateLimit({
       windowMs: 15 * 60 * 1000, // 15 minutes
       max: 100, // limit each IP to 100 requests per windowMs
-    }));
+    }),
+  );
 
   // read .env variables into process.env
   dotenv.config();
