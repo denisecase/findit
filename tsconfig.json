@@ -15,7 +15,7 @@
   },
   "include": [
     "src/**/*",
-    "test/**/*",
+    "test/**/*"
   ],
   "exclude": ["dist", "prisma", "tests"]
 }
