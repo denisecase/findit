@@ -1,23 +1,15 @@
-/* Custom Styles - use MDB 5 classes as much as possible */
-/* See: https://mdbootstrap.com/docs/standard/ */
-/* Mouse overs - see https://ianlunn.github.io/Hover/ */
+/* Custom Styles - use MDB 5 classes as much as possible 
+ See: https://mdbootstrap.com/docs/standard/ 
+*/
 
 :root {
   /* set new css variables at the top of the tree */
-  --nw-green: #006747;
-}
-
-a {
-  color: var(--nw-green);
+  --first-color: lime;
+  --second-color: hotpink;
 }
 
 .page-container {
   background-color: white;
-}
-
-.nw {
-  background-color: var(--nw-green) !important;
-  color: white !important;
 }
 
 #both {
@@ -33,13 +25,13 @@ a {
 }
 
 #one {
-  background-color: lime;
+  background-color: var(--first-color);
   flex: 1;
   overflow: auto;
 }
 
 #two {
-  background-color: hotpink;
+  background-color: var(--second-color);
   flex: 1;
   overflow: auto;
 }
