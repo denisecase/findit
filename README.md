@@ -1,6 +1,7 @@
 # findit
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b8af046fddad4bfeb391a744eec156f2)](https://app.codacy.com/gh/denisecase/findit?utm_source=github.com&utm_medium=referral&utm_content=denisecase/findit&utm_campaign=Badge_Grade_Settings)
+[![Known Vulnerabilities](https://snyk.io/test/github/denisecase/findit/badge.svg)](https://snyk.io/test/github/denisecase/findit)
 
 A geo-location based game for exploration
 
