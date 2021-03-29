@@ -115,35 +115,34 @@ const locationData: Prisma.LocationCreateInput[] = [
 
   },
   {
-    name: 'Colden Pond One, Baby',
-    north: 40.351133,
-    west: -94.882717,
-    south: 40.351049,
-    east: -94.882375,
+    name: 'Colden Pond One',
+    north: 40.35047,
+    west: -94.88337,
+    south: 40.34964,
+    east: -94.88243,
 
   },
   {
-    name: 'Colden Pond Two, Beautiful',
-    north: 40.350438,
-    west: -94.883363,
-    south: 40.350296,
-    east: -94.883180,
+    name: 'BD Owens Library',
+    north: 40.35390105552575, 
+    west: -94.88672958876477,
+    south: 40.35332055620749,
+    east:  -94.88538848430613,
 
   },
   {
-    name: 'Colden Pond Three, Radical',
-    north: 40.349627,
-    west: -94.883429,
-    south: 40.349529,
-    east: -94.883309,
-
+    name: 'Horizons West',
+    north: 40.356305,
+    west: -94.8826419,
+    south: 40.3556997,
+    east: -94.8811506,
   },
   {
-    name: 'Colden Pond Four, Excellent Smithers',
-    north: 40.350225,
-    west: -94.882697,
-    south: 40.350144,
-    east: -94.882576,
+    name: 'Colden Hall',
+    north: 40.35121,
+    west: -94.88323,
+    south: 40.35065,
+    east: -94.88194,
 
   },
   {

@@ -90,6 +90,7 @@ npm install
 ## After changing data schema
 
 ```Powershell
+npm run drop
 npm run prisma:in
 npm run db:push
 npm run prisma:generate
