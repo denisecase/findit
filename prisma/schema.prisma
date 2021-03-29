@@ -1,10 +1,10 @@
 generator client {
   provider = "prisma-client-js"
-  output = "../node_modules/.prisma/client"
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
- provider = "postgresql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -18,10 +18,10 @@ model Location {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  name     String @unique @default("Location")
-  north    Float @default( 40.34300)
-  west     Float @default(-94.89084)
-  south    Float @default( 40.34000)
-  east     Float @default(-94.88840)
-  isActive Boolean  @default(true)
+  name      String   @unique @default("Location")
+  north     Float    @default(40.34300)
+  west      Float    @default(-94.89084)
+  south     Float    @default(40.34000)
+  east      Float    @default(-94.88840)
+  isActive  Boolean  @default(true)
 }

@@ -155,16 +155,16 @@ export class LocationController {
   @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Post('save')
   async saveNew(
-    @Body('location') responseBody: CreateLocationDto,
+    @Body('location') createLocationDto: CreateLocationDto,
     @Res() res: Response) {
-    console.log(JSON.stringify(responseBody));
+    console.log(JSON.stringify(createLocationDto));
     const dto: Prisma.LocationCreateArgs = {
       data: {
-        name: responseBody.name,
-        north: responseBody.north,
-        west: responseBody.west,
-        south: responseBody.south,
-        east: responseBody.east,
+        name: createLocationDto.name,
+        north: createLocationDto.north,
+        west: createLocationDto.west,
+        south: createLocationDto.south,
+        east: createLocationDto.east,
       },
     };
     const result = await this.locationService.saveNew(dto);

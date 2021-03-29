@@ -7,7 +7,6 @@ export class LocationService {
   constructor(private readonly prisma: PrismaService) { }
 
   // three user-requested actions on the database
-  
   async saveNew(data: Prisma.LocationCreateArgs) {
       return await this.prisma.location.create({
         data,
