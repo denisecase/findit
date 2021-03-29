@@ -12,7 +12,7 @@ export class LocationService {
   }
 
   async saveEdit(dto: Prisma.LocationUpdateArgs) {
-    return await this.prisma.user.update(dto);
+    return await this.prisma.location.update(dto);
   }
 
   async deleteLocation(dto: Prisma.LocationDeleteArgs) {

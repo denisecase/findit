@@ -3,7 +3,6 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { join } from 'path';
 import * as dotenv from 'dotenv';
-import * as bodyParser from 'body-parser';
 import Helmet from 'helmet';
 import Session from 'express-session';
 import Csurf from 'csurf';
@@ -45,16 +44,6 @@ const shortPermissivePolicy = `default-src * 'unsafe-inline' 'unsafe-eval'; scri
     next();
   });
 
-  app.use(
-    bodyParser.json({
-      type: [
-        'application/json',
-        'application/csp-report',
-        'application/reports+json',
-      ],
-    })
-  );
-
   // configure middleware
   app.useStaticAssets(join(__dirname, '.', 'public'));
   app.setBaseViewsDir(join(__dirname, '.', 'views'));
@@ -79,8 +68,6 @@ const shortPermissivePolicy = `default-src * 'unsafe-inline' 'unsafe-eval'; scri
       max: 100, // limit each IP to 100 requests per windowMs
     }),
   );
-
-
 
   // read .env variables into process.env
   dotenv.config();

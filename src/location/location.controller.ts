@@ -177,17 +177,17 @@ export class LocationController {
   @Post('save/:id')
   async saveEdit(
     @Param('id') id: string,
-    @Body() updateLocatonDto: UpdateLocationDto,
+    @Body() updateLocationDto: UpdateLocationDto,
     @Res() res: Response,) {
-    console.info(JSON.stringify(updateLocatonDto));
+    console.info(JSON.stringify(updateLocationDto));
     const dto: Prisma.LocationUpdateArgs = {
       where: { id: +id },
       data: {
-        name: updateLocatonDto.name,
-        north: +updateLocatonDto.north,
-        west: +updateLocatonDto.west,
-        south: +updateLocatonDto.south,
-        east: +updateLocatonDto.east,
+        name: updateLocationDto.name,
+        north: +updateLocationDto.north,
+        west: +updateLocationDto.west,
+        south: +updateLocationDto.south,
+        east: +updateLocationDto.east,
       },
     };
     const result = await this.locationService.saveEdit(dto);
