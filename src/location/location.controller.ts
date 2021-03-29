@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Param, Render, Res, Redirect } from '@nestjs/common';
-import {  ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Prisma } from '@prisma/client';
 import { Response } from 'express';
 import { LocationService } from './location.service';
@@ -17,7 +17,7 @@ import { identity } from 'rxjs';
  * 
  * @Render indicates which view to render
  */
-@ApiTags('locations'  )
+@ApiTags('locations')
 @Controller('locations')
 export class LocationController {
   constructor(private readonly locationService: LocationService) { }
@@ -155,16 +155,16 @@ export class LocationController {
   @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Post('save')
   async saveNew(
-    @Body('location') createLocationDto: CreateLocationDto,
+    @Body() createLocationDto: CreateLocationDto,
     @Res() res: Response) {
     console.log(JSON.stringify(createLocationDto));
     const dto: Prisma.LocationCreateArgs = {
       data: {
         name: createLocationDto.name,
-        north: createLocationDto.north,
-        west: createLocationDto.west,
-        south: createLocationDto.south,
-        east: createLocationDto.east,
+        north: +createLocationDto.north,
+        west: +createLocationDto.west,
+        south: +createLocationDto.south,
+        east: +createLocationDto.east,
       },
     };
     const result = await this.locationService.saveNew(dto);
@@ -177,22 +177,21 @@ export class LocationController {
   @Post('save/:id')
   async saveEdit(
     @Param('id') id: string,
-    @Body() location: UpdateLocationDto,
+    @Body() updateLocatonDto: UpdateLocationDto,
     @Res() res: Response,) {
-      console.info( JSON.stringify(location));
+    console.info(JSON.stringify(updateLocatonDto));
     const dto: Prisma.LocationUpdateArgs = {
-      where: { id: parseInt(id) },
+      where: { id: +id },
       data: {
-        name: location.name,
-        north: location.north,
-        west: location.west,
-        south: location.south,
-        east: location.east,
+        name: updateLocatonDto.name,
+        north: +updateLocatonDto.north,
+        west: +updateLocatonDto.west,
+        south: +updateLocatonDto.south,
+        east: +updateLocatonDto.east,
       },
     };
     const result = await this.locationService.saveEdit(dto);
-    return JSON.stringify(dto);
-   // res.redirect('/locations');
+    res.redirect('/locations');
   }
 
   @ApiOperation({ summary: 'Delete location' })

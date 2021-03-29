@@ -7,22 +7,16 @@ export class LocationService {
   constructor(private readonly prisma: PrismaService) { }
 
   // three user-requested actions on the database
-  async saveNew(data: Prisma.LocationCreateArgs) {
-      return await this.prisma.location.create({
-        data,
-      });
+  async saveNew(dto: Prisma.LocationCreateArgs) {
+      return await this.prisma.location.create(dto);
   }
 
-  async saveEdit(params: Prisma.LocationUpdateArgs) {
-    const { where, data } = params;
-    return await this.prisma.user.update({
-      data,
-      where,
-    });
+  async saveEdit(dto: Prisma.LocationUpdateArgs) {
+    return await this.prisma.user.update(dto);
   }
 
-  async deleteLocation(data: Prisma.LocationDeleteArgs) {
-    return await this.prisma.location.delete(data);
+  async deleteLocation(dto: Prisma.LocationDeleteArgs) {
+    return await this.prisma.location.delete(dto);
   }
 
   async findMany(data: Prisma.LocationFindManyArgs) {
